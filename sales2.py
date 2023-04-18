@@ -97,7 +97,7 @@ class sale_class:
         else:
             if self.var_invoice.get() in self.bill_list:
                 #fp=open(os.path.join(script_dir,f'project_ver2_1/bill/{self.var_invoice.get()}.txt','r'))
-                fp = open(os.path.join(script_dir, r'project_ver2_1/bill', f'{self.var_invoice.get()}'), 'r')
+                fp = open(os.path.join(script_dir, r'project_ver2_1/bill/', f'{self.var_invoice.get()}.txt'), 'r')
                 self.bill_area.delete('1.0',END)
                 for i in fp:
                    self.bill_area.insert(END,i)
@@ -109,8 +109,6 @@ class sale_class:
         self.show()
         self.bill_area.delete('1.0',END)
      
-
-
 if __name__=="__main__":
     root=Tk()
     obj=sale_class(root)
