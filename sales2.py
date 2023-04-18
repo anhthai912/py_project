@@ -71,7 +71,6 @@ class sale_class:
     def show(self):
         del self.bill_list[:]
         self.Sales_List.delete(0,END)
-        #print(os.listdir('../IMS')) bill1.txt, category.py
         for i in os.listdir(os.path.join(script_dir,'project_ver2_1/bill')):
             #print(i.split('.'),i.split('.')[-1])
             if i.split('.')[-1]=='txt':
