@@ -113,3 +113,4 @@ if __name__=="__main__":
     obj=sale_class(root)
     connection = get_sql_connection()
     root.mainloop()
+    
