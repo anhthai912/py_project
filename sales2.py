@@ -71,7 +71,6 @@ class sale_class:
     def show(self):
         del self.bill_list[:]
         self.Sales_List.delete(0,END)
-        #print(os.listdir('../IMS')) bill1.txt, category.py
         for i in os.listdir(os.path.join(script_dir,'project_ver2_1/bill')):
             #print(i.split('.'),i.split('.')[-1])
             if i.split('.')[-1]=='txt':
@@ -97,7 +96,7 @@ class sale_class:
         else:
             if self.var_invoice.get() in self.bill_list:
                 #fp=open(os.path.join(script_dir,f'project_ver2_1/bill/{self.var_invoice.get()}.txt','r'))
-                fp = open(os.path.join(script_dir, r'project_ver2_1/bill', f'{self.var_invoice.get()}'), 'r')
+                fp = open(os.path.join(script_dir, r'project_ver2_1/bill/', f'{self.var_invoice.get()}.txt'), 'r')
                 self.bill_area.delete('1.0',END)
                 for i in fp:
                    self.bill_area.insert(END,i)
@@ -109,10 +108,9 @@ class sale_class:
         self.show()
         self.bill_area.delete('1.0',END)
      
-
-
 if __name__=="__main__":
     root=Tk()
     obj=sale_class(root)
     connection = get_sql_connection()
     root.mainloop()
+    
