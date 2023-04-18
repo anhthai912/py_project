@@ -1,0 +1,65 @@
+
+"""sql command for base data"""
+
+CREATE SCHEMA `prj_ver2`;
+
+CREATE TABLE `prj_ver2`.`products` (
+  `product_id` INT NOT NULL auto increment,
+  `product_name` VARCHAR(45) NOT NULL,
+  `product_type` VARCHAR(45) NOT NULL,
+  `pro_manu` VARCHAR(45) NOT NULL,
+  `pro_exp` VARCHAR(45) NULL,
+  `product_unit` VARCHAR(45) NOT NULL,
+  `product_price` INT NOT NULL,
+  `product_quantity` INT NOT NULL,
+  `product_description` VARCHAR(45) NULL,
+  `seller` INT NOT NULL,
+  PRIMARY KEY (`product_id`),
+  CONSTRAINT `seller`
+	  FOREIGN KEY (`seller`)
+	  REFERENCES `prj_ver2`.`sellers` (`seller_id`)
+		ON DELETE CASCADE
+		ON UPDATE NO ACTION);
+
+
+INSERT INTO `prj_ver2`.`products` (`product_id`, `product_name`, `product_type`, `pro_manu`, `pro_exp`, `product_unit`, `product_price`, `product_quantity`, `product_description`, `seller`) VALUES ('1', 'pork', 'meat', '12/12/2022', '30/12/2022', 'gram', '15', '17','','1');
+INSERT INTO `prj_ver2`.`products` (`product_id`, `product_name`, `product_type`, `pro_manu`, `pro_exp`, `product_unit`, `product_price`, `product_quantity`, `product_description`, `seller`) VALUES ('2', 'squid', 'seafood', '12/12/2022', '30/12/2022', 'kilogram', '23', '16','','1');
+
+
+CREATE TABLE `users` (
+  `user_id` INT NOT NULL auto increment,
+  `full_name` VARCHAR(100) NULL,
+  `user_name` VARCHAR(100) NULL,
+  `password` VARCHAR(100) NULL,
+  `gender` VARCHAR(45) NULL,
+  `phone_number` INT NULL,
+  `address` VARCHAR(100) NULL,
+  `type` varchar(45) NULL,
+  PRIMARY KEY (`user_id`));
+  
+CREATE TABLE `sellers` (
+  `seller_id` INT NOT NULL auto increment,
+  `seller_full_name` VARCHAR(100) NULL,
+  `seller_user_name` VARCHAR(100) NULL,
+  `seller_gender` VARCHAR(45) NULL,
+  `seller_phone_number` INT NULL,
+  `seller_address` VARCHAR(100) NULL,
+  PRIMARY KEY (`seller_id`));
+  
+  
+INSERT INTO `prj_ver2`.`users` (`user_id`, `full_name`, `user_name`, `password`, `gender`, `phone_number`, `address`, `type`) VALUES ('1', 'James Smith', 'James', '123', 'Male', '2147483647', 'Broadway', 'Seller');
+INSERT INTO `prj_ver2`.`users` (`user_id`, `full_name`, `user_name`, `password`, `gender`, `phone_number`, `address`, `type`) VALUES ('2', 'Robert', 'Johnson', '1234', 'Male', '2147483647', 'Park Avenue', 'Customer');
+INSERT INTO `prj_ver2`.`users` (`user_id`, `full_name`, `user_name`, `password`, `gender`, `phone_number`, `address`, `type`) VALUES ('3', 'John', 'Williams', '12345', 'Male', '956456555', 'St. Marks Place', 'Seller');
+INSERT INTO `prj_ver2`.`users` (`user_id`, `full_name`, `user_name`, `password`, `gender`, `phone_number`, `address`, `type`) VALUES ('4', 'Michael', 'Brown', '123456', 'Male', '987648477', '5th Avenue', 'Customer');
+INSERT INTO `prj_ver2`.`users` (`user_id`, `full_name`, `user_name`, `password`, `gender`, `phone_number`, `address`, `type`) VALUES ('5', 'David', 'Jones', '1234567', 'Male', '955765354', 'Washington Street', 'Seller');
+INSERT INTO `prj_ver2`.`users` (`user_id`, `full_name`, `user_name`, `password`, `gender`, `phone_number`, `address`, `type`) VALUES ('6', 'Mary', 'Garcia', '12345678', 'Female', '324654677', 'Wall Street', 'Customer');
+INSERT INTO `prj_ver2`.`users` (`user_id`, `full_name`, `user_name`, `password`, `gender`, `phone_number`, `address`, `type`) VALUES ('7', 'Patricia', 'Miller', '123456789', 'Female', '325754754', 'Crosby Street', 'Seller');
+INSERT INTO `prj_ver2`.`users` (`user_id`, `full_name`, `user_name`, `password`, `gender`, `phone_number`, `address`, `type`) VALUES ('8', 'Jennifer', 'Davis', '1234567890', 'Female', '931234123', 'Doyers Street', 'Customer');
+INSERT INTO `prj_ver2`.`users` (`user_id`, `full_name`, `user_name`, `password`, `gender`, `phone_number`, `address`, `type`) VALUES ('9', 'Linda', 'Rodriguez', '12345678901', 'Female', '923123412', 'Riverside Drive', 'Seller');
+INSERT INTO `prj_ver2`.`users` (`user_id`, `full_name`, `user_name`, `password`, `gender`, `phone_number`, `address`, `type`) VALUES ('10', 'Elizabeth', 'Martinez', '123456789012', 'Female', '324235642', 'Prospect Park West', 'Customer');
+
+INSERT INTO `prj_ver2`.`sellers` (`seller_id`, `seller_full_name`, `seller_user_name`, `seller_gender`, `seller_phone_number`, `seller_address`) VALUES ('1', 'James Smith', 'James', 'Male', '2147483647', 'Broadway');
+INSERT INTO `prj_ver2`.`sellers` (`seller_id`, `seller_full_name`, `seller_user_name`, `seller_gender`, `seller_phone_number`, `seller_address`) VALUES ('2', 'John', 'Williams', 'Male', '956456555', 'St. Marks Place');
+INSERT INTO `prj_ver2`.`sellers` (`seller_id`, `seller_full_name`, `seller_user_name`, `seller_gender`, `seller_phone_number`, `seller_address`) VALUES ('3', 'David', 'Jones', 'Male', '955765354', 'Washington Street');
+INSERT INTO `prj_ver2`.`sellers` (`seller_id`, `seller_full_name`, `seller_user_name`, `seller_gender`, `seller_phone_number`, `seller_address`) VALUES ('4', 'Patricia', 'Miller', 'Female', '325754754', 'Crosby Street');
+INSERT INTO `prj_ver2`.`sellers` (`seller_id`, `seller_full_name`, `seller_user_name`, `seller_gender`, `seller_phone_number`, `seller_address`) VALUES ('5', 'Linda', 'Rodriguez', 'Female', '923123412', 'Riverside Drive');
